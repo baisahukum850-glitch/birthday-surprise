@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffe6f0">
+<title>A Birthday Surprise 💗</title>
+<style>
+:root{--pink:#ff7aa8;--rose:#d94f83;--ink:#612846;--cream:#fff8fb;--lilac:#eee5ff}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 10%,#fff 0,transparent 32%),linear-gradient(145deg,#fff8fb,#ffe0ec 55%,#eee5ff);color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+button{font:600 15px Arial,sans-serif;border:0;border-radius:999px;padding:14px 20px;cursor:pointer;transition:transform .2s,filter .2s}
+button:active{transform:scale(.97)}
+.primary{background:linear-gradient(135deg,#ff75a5,#d94f83);color:white;box-shadow:0 9px 22px #d94f8340}
+.soft{background:#fff;color:var(--rose);border:1px solid #ffc1d6}
+main{width:min(100% - 28px,650px);margin:auto;padding:22px 0 40px;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.topline{font:11px Arial,sans-serif;letter-spacing:3px;color:#b45c80;text-align:center}
+.screen{display:none;text-align:center;animation:appear .55s ease both}
+.screen.active{display:block}
+h1{font-size:clamp(2.5rem,10vw,4.7rem);line-height:1.03;color:#a93466;margin:17px 0}
+h2{font-size:clamp(1.8rem,7vw,2.6rem);color:#a93466;margin:12px 0}
+p{font:15px/1.8 Arial,sans-serif;color:#80536a}
+.small{font-size:12px;color:#a36e86}
+.panel{background:#ffffffc9;border:1px solid #ffd0e0;border-radius:28px;padding:clamp(20px,6vw,34px) 20px;box-shadow:0 18px 55px #b9507920;backdrop-filter:blur(8px)}
+.hero-emoji{font-size:76px;line-height:1.4;filter:drop-shadow(0 8px 10px #ee9bbd66)}
+.gift{font-size:96px;display:block;margin:12px auto 20px;animation:bob 2s ease-in-out infinite;cursor:pointer;filter:drop-shadow(0 12px 10px #d94f8333)}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.letter{white-space:pre-line;font:16px/1.95 Georgia,serif;color:#74405b;text-align:left;background:#fff9fc;border-radius:18px;padding:19px;border:1px solid #ffe0eb}
+.photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.photo{height:175px;border:2px dashed #f1a1bf;border-radius:17px;background:linear-gradient(145deg,#fff1f7,#f3eaff);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:12px;font:13px/1.5 Arial,sans-serif;color:#a45c7d}
+.photo img{width:100%;height:100%;object-fit:cover}
+.progress{display:flex;justify-content:center;gap:7px;margin:0 0 17px}
+.dot{height:7px;width:7px;border-radius:99px;background:#f2b9cf}
+.dot.on{width:22px;background:#d94f83}
+footer{text-align:center;font:11px Arial,sans-serif;color:#b27691;margin-top:20px}
+.heart{position:fixed;bottom:-35px;z-index:10;pointer-events:none;animation:float 4.5s linear forwards}
+@keyframes appear{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes float{to{transform:translateY(-110vh) rotate(28deg);opacity:0}}
+@media(max-width:390px){.photo{height:140px}.gift{font-size:80px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="topline">A LITTLE CORNER OF MAGIC ✦</div>
+  <div class="progress" aria-label="Progress"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+
+  <section class="screen active" id="s1">
+    <div class="panel">
+      <div class="hero-emoji">🎀</div>
+      <p class="topline">SOMEONE SPECIAL, THIS IS FOR YOU</p>
+      <h1>Hey, <span class="name">Birthday Star</span>!</h1>
+      <p>I made something tiny, sweet, and just for your special day.</p>
+      <div class="gift" onclick="go(2)" role="button" aria-label="Open gift">🎁</div>
+      <button class="primary" onclick="go(2)">Open your surprise 💌</button>
+      <p class="small">Psst… tap the gift too ✨</p>
+    </div>
+  </section>
+
+  <section class="screen" id="s2">
+    <div class="panel">
+      <div class="hero-emoji">🎂✨</div>
+      <p class="topline">TODAY IS YOUR DAY</p>
+      <h2>Happy Birthday!</h2>
+      <p>May today bring you a hundred little reasons to smile, and may the year ahead be even more beautiful than you imagine.</p>
+      <div style="font-size:32px;margin:15px">🌷 💗 🌷</div>
+      <button class="primary" onclick="go(3)">There's a little letter for you →</button>
+      <div class="actions"><button class="soft" onclick="go(1)">← Back</button></div>
+    </div>
+  </section>
+
+  <section class="screen" id="s3">
+    <div class="panel">
+      <p class="topline">A NOTE FROM MY HEART</p>
+      <h2>A little letter 💌</h2>
+      <div class="letter" id="letter">Dear Birthday Star,
+
+I hope this new chapter brings you peace, laughter, lovely surprises, and people who make you feel appreciated.
+
+Thank you for being your own wonderful self. Keep dreaming big, collecting happy memories, and finding magic in the little things.
+
+You deserve so much happiness — today and always. 💗
+
+With lots of love,
+Someone who wishes you the best ✨</div>
+      <div class="actions">
+        <button class="soft" onclick="go(2)">← Back</button>
+        <button class="primary" onclick="go(4)">Our memories 📸 →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s4">
+    <div class="panel">
+      <p class="topline">LITTLE MOMENTS, BIG MEMORIES</p>
+      <h2>Our memory corner 📸</h2>
+      <p>These photo spots are ready for your favourite memories.</p>
+      <div class="photos">
+        <div class="photo"><div>🌸<br>Photo one goes here</div></div>
+        <div class="photo"><div>💗<br>Photo two goes here</div></div>
+        <div class="photo"><div>✨<br>Photo three goes here</div></div>
+        <div class="photo"><div>🫶<br>Photo four goes here</div></div>
+      </div>
+      <p style="margin-top:22px">One last wish, before you go…</p>
+      <button class="primary" onclick="celebrate()">Make it magical ✨</button>
+      <div class="actions">
+        <button class="soft" onclick="go(3)">← Read the letter</button>
+        <button class="soft" onclick="go(1)">Start again ↻</button>
+      </div>
+      <p id="finalWish" style="display:none;font-size:18px;color:#a93466;font-weight:bold">May your wishes find their way to you. Happy Birthday! 💖🎉</p>
+    </div>
+  </section>
+  <footer>made with a little extra love ♡</footer>
+</main>
+<script>
+/* PERSONALIZE: replace these with the recipient's nickname and your own message. */
+const recipientName = "Birthday Star";
+document.querySelectorAll(".name").forEach(el => el.textContent = recipientName);
+function go(n){
+  document.querySelectorAll(".screen").forEach((s,i)=>s.classList.toggle("active",i===n-1));
+  document.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("on",i===n-1));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(n===2) hearts(12);
+}
+function hearts(count=20){
+  const icons=["💗","💖","💕","✨","🌸","🎀"];
+  for(let i=0;i<count;i++){
+    const el=document.createElement("span");el.className="heart";
+    el.textContent=icons[Math.floor(Math.random()*icons.length)];
+    el.style.left=Math.random()*100+"vw";
+    el.style.fontSize=(17+Math.random()*22)+"px";
+    el.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(el);setTimeout(()=>el.remove(),6500);
+  }
+}
+function celebrate(){
+  document.getElementById("finalWish").style.display="block";
+  hearts(35);
+}
+</script>
+</body>
+</html>
